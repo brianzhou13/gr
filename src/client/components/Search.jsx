@@ -1,39 +1,60 @@
 import React, { Component, PropTypes } from 'react';
 import { render } from 'react-dom';
+import InputForm from './searchForms/InputForm';
 
 class Search extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      value: 'city'
+      street: 'street',
+      city: 'city',
+      zip: 'zipcode',
+      state: 'state',
+
     };
 
-    this.updateText = this.updateText.bind(this);
+    this.updateStreet = this.update.bind(this, 'street');
+    this.updateCity = this.update.bind(this, 'city');
+    this.updateState = this.update.bind(this, 'state');
+    this.updateZip = this.update.bind(this, 'zip');
   }
 
-  updateText(el) {
+  /*
+    @fn-name: updateStreet
+    @input: details for input element on DOM
+    @output: n/a
+    @fn: takes input entered by user, then updates local `street` state
+  */
+  update(key, el) {
     this.setState({
-      value: el.target.value
+      [key]: el.target.value
     });
   }
 
   render() {
     return (
       <div>
-        <div className="form-inline row">
-          <label 
-            for="example-text-input" 
-            className="col-2 col-form-label">Text</label>
-          <div className="col-10">
-            <input 
-              className="form-control" 
-              type="text" 
-              value={this.state.value}
-              onChange={this.updateText}
-              id="example-text-input"/>
-          </div>
-        </div>
+        <InputStreet
+          value={this.state.street}
+          update={this.updateStreet}
+          dataType={`Street`}
+          />
+        <InputStreet
+          value={this.state.city}
+          update={this.updateCity}
+          dataType={`City`}
+          />
+        <InputStreet
+          value={this.state.state}
+          update={this.updateState}
+          dataType={`State`}
+          />
+        <InputStreet
+          value={this.state.zip}
+          update={this.updateZip}
+          dataType={`ZipCode`}
+          />
       </div>
     )
   }
