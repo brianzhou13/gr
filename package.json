@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "wp": "./node_modules/.bin/webpack -d --watch",
-    "start": "nodemon src/server/server.js"
+    "start": "node src/server/server.js",
+    "s": "NODE_ENV=DEV_HOT node src/server/server.js"
   },
   "repository": {
     "type": "git",

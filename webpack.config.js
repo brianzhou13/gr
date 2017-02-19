@@ -20,7 +20,7 @@ var config = {
   plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoEmitOnErrorsPlugin()
   ],
   externals: { // these will help enzyme work properly
     'cheerio': 'window', // importing the cheerio library
@@ -28,23 +28,46 @@ var config = {
     'react/lib/ReactContext': true,
     'react/addons': true,
   },
+  // module: {
+  //   loaders: [
+  //     {
+  //       test: /\.jsx?/,
+  //       loader: 'react-hot-loader!babel-loader',
+  //       // loaders: ['react-hot', 'babel'],
+  //       exclude: /(node_modules)/,
+  //     },
+  //     {
+  //       test: /\.css$/,
+  //       loader: 'style-loader!css-loader',
+  //     },
+  //     { test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+  //       loader: 'url-loader?limit=100000',
+  //     },
+  //   ],
+  // },
   module: {
-    loaders: [
+    rules: [
       {
-        test: /\.jsx?/,
-        loader: 'react-hot-loader!babel-loader',
-        // loaders: ['react-hot', 'babel'],
+        test: /\.(js|jsx)$/,
+        // include: APP_DIR,
+        // loader: 'react-hot!babel',
+        use: [
+          'react-hot-loader',
+          'babel-loader',
+        ],
+        // loaders: ['babel-loader', 'react-hot'], // actually different  
         exclude: /(node_modules)/,
       },
       {
         test: /\.css$/,
-        loader: 'style-loader!css-loader',
+          use: [
+            'style-loader',
+            'css-loader',
+            // 'resolve-url-loader' 
+          ]
       },
-      { test: /\.(png|woff|woff2|eot|ttf|svg)$/,
-        loader: 'url-loader?limit=100000',
-      },
-    ],
-  },
+    ]
+  }
 };
 
 module.exports = config;

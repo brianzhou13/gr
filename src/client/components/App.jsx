@@ -1,5 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import { render } from 'react-dom';
+import Header from './Header';
+import Body from './Body';
 
 class App extends Component {
   constructor(props) {
@@ -9,7 +11,8 @@ class App extends Component {
   render() {
     return (
       <div>
-        Hello World
+        <Header/>
+        <Body/>
       </div>
     );
   }
