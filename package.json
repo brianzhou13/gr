@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "wp": "./node_modules/.bin/webpack -d --watch",
+    "start": "nodemon src/server/server.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,25 @@
   "bugs": {
     "url": "https://github.com/brianzhou13/gr/issues"
   },
-  "homepage": "https://github.com/brianzhou13/gr#readme"
+  "homepage": "https://github.com/brianzhou13/gr#readme",
+  "devDependencies": {
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.2",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.23.0",
+    "babel-preset-stage-0": "^6.22.0",
+    "body-parser": "^1.16.1",
+    "morgan": "^1.8.1",
+    "nodemon": "^1.11.0",
+    "react-hot-loader": "^1.3.1",
+    "webpack": "^2.2.1",
+    "webpack-dev-middleware": "^1.10.1",
+    "webpack-hot-middleware": "^2.17.0"
+  },
+  "dependencies": {
+    "express": "^4.14.1",
+    "path": "^0.12.7",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  }
 }
