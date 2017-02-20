@@ -22,8 +22,8 @@ module.exports = (app) => {
 
       axios.get(url)
         .then((resp) => {
-          const locationData = resp.data.results[0].geometry.location;
           
+          const locationData = resp.data.results[0].geometry.location;
 
           return [parseFloat(locationData.lat), parseFloat(locationData.lng)];
         })
@@ -38,19 +38,29 @@ module.exports = (app) => {
         .catch((err) => {
           console.error(`error in /api/:street/:city/:state/:zip route: ${err}`);
         });
-      // res.redirect(`https://maps.googleapis.com/maps/api/geocode/json?address=${street},${city},${state}&key=${googleKey}`);
     });
 
   /*
-    @route-name: /*
+    @route-name: /
     @input: n/a
     @output: index.html contents
     @fn: role is to send back index.html when user makes requests to
     our server
   */
-  app.route(`/*`)
+  app.route(`/`)
     .get((req, res) => {
       res.sendFile(path.join(__dirname, '/../../client/index.html'));
+    });
+
+  /*
+    @route-name: /*
+    @input: n/a
+    @output: error message
+    @fn: all non '/' requests will return a 404
+  */
+  app.route(`/*`)
+    .get((req, res) => {
+      res.status(404).send('That page does not exist!');
     });
 };
 

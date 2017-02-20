@@ -8,7 +8,8 @@ module.exports = () => {
     'Longitude': null,
     'Address': null,
     'Store Location': null,
-    'Distance': null
+    'Distance': null,
+    'City': null,
   };
 
   // callback to get the parsed data
@@ -32,7 +33,8 @@ module.exports = () => {
       if(shortestDistance.Distance === null || distance < shortestDistance.Distance) {
         shortestDistance.Latitude = store.Latitude;
         shortestDistance.Longitude = store.Longitude;
-        shortestDistance.Address = store.Address
+        shortestDistance.Address = store.Address;
+        shortestDistance.City = store.City;
         shortestDistance['Store Location'] = store['Store Location'];
         
         shortestDistance.Distance = distance;
