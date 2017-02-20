@@ -1,0 +1,6 @@
+
+.cursor:hover {
+  text-decoration: none;
+  cursor: pointer; 
+  cursor: hand;
+}
