@@ -3,6 +3,8 @@
 # About
 A simple store-locator for people seeking to find the closest store near a specified location.
 
+youtube link: https://youtu.be/Y5kQtpPFBn4
+
 # How it works?
 Before anything happens and upon startup, the server will run a script that will use the `csv-parse` ( https://www.npmjs.com/package/csv-parse ) package to stream out the .csv entries into an array and makes it available by passing in a callback. These files can be found within the `/bin` folder. 
 
