@@ -1,13 +1,3 @@
-// found here:
-/*
-so post: 
-http://stackoverflow.com/questions/1185408/converting-from-longitude-latitude-to-cartesian-coordinates
-
-code: 
-https://rosettacode.org/wiki/Haversine_formula#JavaScript
-
-*/
-
 const expect = require('chai').expect;
 
 const turnToRadians = (deg) => {
@@ -18,6 +8,16 @@ const turnToRadians = (deg) => {
   return result;
 };
 
+/*
+  @fn-name: calcHaversine
+  @input: lat/long for two places -- both wrapped in an array
+  @output: distance in km
+  @fn: calculates the distance between two locations given their longitude/latitude 
+       coordinates. The formula used is called the `Haversine` formula
+  @notes: 
+  http://stackoverflow.com/questions/1185408/converting-from-longitude-latitude-to-cartesian-coordinates
+  https://rosettacode.org/wiki/Haversine_formula#JavaScript
+*/
 const calcHaversine = ([lat1, long1], [lat2, long2]) => {
 
   // data-format from our .csv sheet
@@ -27,11 +27,9 @@ const calcHaversine = ([lat1, long1], [lat2, long2]) => {
 
   // difference between two points in respect to latitude
   dLat = rlat2 - rlat1;
-  // console.log('dlat is: ', dLat);
 
   // difference between two points in respect o longitude
   dLong = rlong2 - rlong1;
-  // console.log('dlong is: ', dLong);
 
   // radius of the earth in `km`
   radius = 6372.8;

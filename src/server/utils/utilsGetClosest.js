@@ -1,6 +1,16 @@
 const allLocations = require('../../../bin/getLocationCsv');
 const calcDistance = require('./utilsCalcDistance');
 
+
+/*
+  @fn-name: n/a
+  @input: user-entered geocoordinates
+  @output: shortestDistance
+  @fn: loops through all store location in `allLocations`, then individually calculates
+       the distance between that store location and the user inputted geocoordinates while
+       also tracking for the smallest distance.
+  @notes: uses a closure to hold `allLocation` data
+*/
 module.exports = () => {
   var allLocationsData;
   var shortestDistance = {

@@ -19,6 +19,13 @@ class Body extends Component {
     this.setSearch = this.setSearch.bind(this);
   }
 
+  /*
+    @fn-name: getResults
+    @input: closest store data from API 
+    @output: n/a
+    @fn: updates the state with data regarding the closest store, as well as
+         updating the `meters` data that'll be funneled down to the Footer.
+  */
   getResults(results) {
     this.setState({
       results: results,
@@ -29,6 +36,12 @@ class Body extends Component {
     })
   }
 
+  /*
+    @fn-name: setSearch
+    @input: boolean
+    @output: n/a
+    @fn: decides if the search view or the results view should be displayed
+  */
   setSearch(val) {
     this.setState({
       search: val

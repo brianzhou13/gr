@@ -7,7 +7,7 @@ const Results = ({results, setSearch}) => {
       <div className='card'>
         <div className='card-block card-head'>
           <h4 className='card-title apple-font'>{results[`Store Location`]}</h4>
-          <span className='card-text'>located {Math.round(results[`Distance`])} meters away</span>
+          <span className='card-text'>located {Math.round(results[`Distance`])} kilometers away</span>
         </div>
         <ul className='list-group list-group-flush apple-font'>
           <li className='list-group-item'>

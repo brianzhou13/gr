@@ -75,18 +75,8 @@ module.exports = (app) => {
     @output: error message
     @fn: all non '/' requests will return a 404
   */
-  // app.route(`/*`)
-  //   .get((req, res) => {
-  //     res.status(404).send('That page does not exist!');
-  //   });
+  app.route(`/*`)
+    .get((req, res) => {
+      res.status(404).send('That page does not exist!');
+    });
 };
-
-/*
-
-GOOGLE APIs
- geolocation -- if you want to find current location based off cell-towers
- geocoding -- give a destination
- distance matrix -- compute distance between locations
-
-*/
-

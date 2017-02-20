@@ -24,6 +24,16 @@ new Promise((resolve, reject) => {
   console.error(`error in retrieving the data from csv sheet: ${err}`);
 });
 
+
+/*
+  @fn-name: n/a
+  @input: callback 
+  @output: n/a
+  @fn: takes in a callback to return the value for `data`. If the data has not
+      yet been parsed from `.csv`, it'll set the passed in `cb` to the local
+      variable `callback`. Once the .csv data is parsed and received from the
+      resolved promise, it'll call the callback with the data.
+*/
 module.exports = (cb) => {
   if(typeof data !== 'undefined') {
     cb(data);
