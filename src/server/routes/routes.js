@@ -4,6 +4,7 @@ const axios = require('axios');
 const urlBuilder = require('../utils/utilsUrlBuilder');
 const getShortestDistance = require('../utils/utilsGetClosest')();
 const respChecker = require('../utils/respChecker');
+const cache = {};
 
 module.exports = (app) => {
 
@@ -18,6 +19,11 @@ module.exports = (app) => {
     .get((req, res) => {
       const {street, city, state, zip} = req.params;
       const url = urlBuilder.geolocation({street, city, state});
+
+      // check cache -- can use redis in the future or some other key-pair storage
+      if(cache[url]) {
+        res.send(200, cache[url]);
+      }
 
       console.log(`street: ${street}, city: ${city}, zip: ${zip}, state: ${state}`);
 
@@ -36,11 +42,14 @@ module.exports = (app) => {
           return [parseFloat(locationData.lat), parseFloat(locationData.lng)];
         })
         .then((locationData) => {
-          // apply searches
 
           return getShortestDistance(locationData);
         })
         .then((shortest) => {
+          // add results into cache
+          cache[url] = shortest;
+
+          // send back to front-end
           res.send(shortest);
         })
         .catch((err) => {
@@ -66,10 +75,10 @@ module.exports = (app) => {
     @output: error message
     @fn: all non '/' requests will return a 404
   */
-  app.route(`/*`)
-    .get((req, res) => {
-      res.status(404).send('That page does not exist!');
-    });
+  // app.route(`/*`)
+  //   .get((req, res) => {
+  //     res.status(404).send('That page does not exist!');
+  //   });
 };
 
 /*

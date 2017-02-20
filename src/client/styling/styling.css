@@ -1,6 +1,91 @@
-
 .cursor:hover {
   text-decoration: none;
   cursor: pointer; 
   cursor: hand;
+}
+
+.header-sub {
+  font-weight: 100;
+}
+
+.search-btn-btn:hover {
+  background-color: #ff9999;
+}
+
+.apple-font {
+  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-weight: 100;
+}
+
+.search-btn-btn {
+  font-weight: 100; important
+  font-size: 1.25rem;
+}
+
+.search-btn-transition {
+  transition-timing-function: ease-in;
+  transition: .2s;
+}
+
+.app {
+  display: flex; 
+}
+
+.header-text {
+  text-align: center;
+  padding: 100px 0px 50px 0px;
+}
+
+
+.center {
+  text-align: center;
+}
+
+.card-results {
+  padding-bottom: 50px;
+}
+
+.card-head {
+  text-align: center;
+}
+
+.card-bot {
+  background-color: rgb(2, 117, 216);
+  color: white;
+  border-color: #01549b;
+  font-weight: 100;
+  font-size: 1.25rem;
+  border-radius: .3rem;
+  line-height: 1.25;
+  text-align: center;
+  border: 1px solid;
+  border-color: #01549b;
+}
+
+/* transitions */
+.example-appear {
+  opacity: 0.01;
+}
+
+.example-appear.example-appear-active {
+  opacity: 1;
+  transition: opacity .5s ease-in;
+}
+
+.example-enter {
+  opacity: 0.01;
+}
+
+.example-enter.example-enter-active {
+  opacity: 1;
+  transition: opacity 1000ms ease-in;
+}
+
+.example-leave {
+  opacity: 1;
+}
+
+.example-leave.example-leave-active {
+  opacity: 0.01;
+  transition: opacity 1000ms ease-in;
 }

@@ -1,4 +1,10 @@
 
+/*
+    @route-name: n/a
+    @input: response object, street string, city string, state string
+    @output: boolean
+    @fn: checks if the response object passes set tests
+  */
 module.exports = ({data, street, city, state}) => {
   // check the type
   if(typeof data !== 'object') {
