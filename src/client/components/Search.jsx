@@ -60,14 +60,14 @@ class Search extends Component {
 
     const {street, city, state, zip} = this.state;
 
-    // change state
-    this.props.setSearch(false);
 
     axios.get(`/api/${street}/${city}/${state}/${zip}`)
       .then((resp) => {
         // maybe can set state here
-        console.log('resp received is: ', resp);
         this.props.getResults(resp.data);
+        
+        // // change state
+        // this.props.setSearch(false);
       })
       .catch((err) => {
         console.log(`err: ${err}`);

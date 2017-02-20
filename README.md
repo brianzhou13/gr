@@ -22,6 +22,7 @@ Another optimization would be to have the .csv array sorted before having it be 
 
 
 # Noteable Tech + Packages Used:
+
 * react
 * express
 * axios
@@ -30,7 +31,10 @@ Another optimization would be to have the .csv array sorted before having it be 
 * mocha + chai
 
 # Startup Instructions
+
 1. `npm install` to install packages
 2. `npm run wp`  to startup webpack
 3. `npm start`   to startup server
 4. Head over to `http://127.0.0.1:3000`
+
+

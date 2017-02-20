@@ -27,13 +27,22 @@ class Body extends Component {
          updating the `meters` data that'll be funneled down to the Footer.
   */
   getResults(results) {
-    this.setState({
-      results: results,
-    })
+    // error-handling 
+    if(results === `response didn't pass test`) {
+      alert(`there was an error with your input!`);
+      
+      // keep the view at search
+      this.setState({
+        search: true
+      });
 
-    this.setState({
-      meters: this.state.meters + results.Distance
-    })
+    } else {
+      this.setState({
+        results: results,
+        meters: this.state.meters + results.Distance,
+        search: false
+      });
+    }
   }
 
   /*
