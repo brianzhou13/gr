@@ -1,5 +1,10 @@
 # gr
 
+# About
+A simple store-locator for people seeking to find the closest store near a specified location.
+
+# How it works?
+The logic is cur
 
 Understanding how to calculate the distance between longitude and latitude points did take bulk of my time. I ended up using the "Haversine Formula" to calculate the distance between the two locations.
 
