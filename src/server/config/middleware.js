@@ -8,7 +8,7 @@ const webpack = require('webpack');
 const webpackConfig = require('../../../webpack.config.js');
 const compiler = webpack(webpackConfig);
 
-module.exports = (app) => {
+module.exports = (app, express) => {
   //Print all of the requests to the server
   app.use(morgan('dev'));
 
@@ -36,6 +36,10 @@ module.exports = (app) => {
       heartbeat: 10 * 1000,
     }));
   }
+
+  // serves up static items
+  app.use(express.static(__dirname + '/../../client'));
+
 
   // a logger middleware to check to see waht each request is
   app.use(function(req, res, next) {

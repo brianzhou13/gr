@@ -1,7 +1,13 @@
 const path = require('path');
 
 module.exports = (app) => {
-  
+
+  app.route(`/api/:street/:city/:state/:zip`)
+    .get((req, res) => {
+      const {street, city, state, zip} = req.params;
+      console.log(`street: ${street}, city: ${city}, zip: ${zip}, state: ${state}`);
+    });
+
   /*
     @route-name: n/a
     @input: n/a
