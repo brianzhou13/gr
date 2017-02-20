@@ -6,8 +6,8 @@
   "scripts": {
     "test": "mocha tests/specs/*.spec.js",
     "wp": "./node_modules/.bin/webpack -d --watch",
-    "start": "nodemon src/server/server.js",
-    "s": "NODE_ENV=DEV_HOT node src/server/server.js"
+    "start": "NODE_ENV=DEV_HOT node src/server/server.js",
+    "s": "NODE_ENV=DEV_HOT nodemon src/server/server.js"
   },
   "repository": {
     "type": "git",
