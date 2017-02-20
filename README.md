@@ -34,9 +34,11 @@ Another optimization would be to have the .csv array sorted before having it be 
 
 # Startup Instructions
 
+1. `git clone` files
+2. `cd` into cloned folder -- check that there is a `package.json` in your directory
 1. `npm install` to install packages
 2. `npm run wp`  to startup webpack
-3. `npm start`   to startup server
+3. `npm start`   to startup server (do in another terminal window)
 4. Head over to `http://127.0.0.1:3000`
 
  5. `npm test` to run tests
