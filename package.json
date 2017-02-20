@@ -39,8 +39,10 @@
   },
   "dependencies": {
     "axios": "^0.15.3",
+    "bluebird": "^3.4.7",
     "csv-parse": "^1.2.0",
     "express": "^4.14.1",
+    "fs": "0.0.1-security",
     "path": "^0.12.7",
     "react": "^15.4.2",
     "react-dom": "^15.4.2"
