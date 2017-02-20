@@ -2,7 +2,7 @@ const path = require('path');
 // const googleKey = require('../../../config/config').geocodeKey;
 const axios = require('axios');
 const urlBuilder = require('../utils/utilsUrlBuilder');
-const getShortestDistance = require('../utils/utilsGetClosest');
+const getShortestDistance = require('../utils/utilsGetClosest')();
 
 module.exports = (app) => {
 
@@ -23,11 +23,13 @@ module.exports = (app) => {
       axios.get(url)
         .then((resp) => {
           const locationData = resp.data.results[0].geometry.location;
+          
 
-          return locationData;
+          return [parseFloat(locationData.lat), parseFloat(locationData.lng)];
         })
         .then((locationData) => {
           // apply searches
+
           return getShortestDistance(locationData);
         })
         .then((shortest) => {
