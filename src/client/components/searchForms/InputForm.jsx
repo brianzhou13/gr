@@ -6,7 +6,7 @@ const InputForm = ({dataType, value, update}) => {
     <div className="form-group row">
       <label 
         htmlFor="example-text-input" 
-        className="col-2 col-form-label">{dataType} Information</label>
+        className="col-2 col-form-label">{dataType} </label>
       <div className="col-10">
         <input 
           className="form-control" 

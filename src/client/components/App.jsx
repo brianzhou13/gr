@@ -10,9 +10,14 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <Header/>
-        <Body/>
+      <div className='row'>
+        <div className='col-md-4'></div>
+        <div className='col-md-4'>
+          <Header/>
+          <Body/>
+        </div>
+        <div className='col-md-4'>
+        </div>
       </div>
     );
   }

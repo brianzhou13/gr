@@ -9,10 +9,10 @@ class Search extends Component {
     super(props);
 
     this.state = {
-      street: 'street',
-      city: 'city',
-      zip: 'zipcode',
-      state: 'state',
+      street: '1770 Union St',
+      city: 'San Francisco',
+      zip: '94123',
+      state: 'CA',
 
     };
 
@@ -60,10 +60,14 @@ class Search extends Component {
 
     const {street, city, state, zip} = this.state;
 
+    // change state
+    this.props.setSearch(false);
+
     axios.get(`/api/${street}/${city}/${state}/${zip}`)
       .then((resp) => {
         // maybe can set state here
         console.log('resp received is: ', resp);
+        this.props.getResults(resp.data);
       })
       .catch((err) => {
         console.log(`err: ${err}`);
@@ -95,12 +99,11 @@ class Search extends Component {
             dataType={`ZipCode`}
             />
         </div>
-        <div>
+        <div className='center'>
           <SearchButton
             search={this.geocodeLocation}
           />
         </div>
-
       </div>
     )
   }

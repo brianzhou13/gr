@@ -5,9 +5,10 @@ const SearchButton = ({search}) => {
     <div>
       <button 
         type='button' 
-        className='btn btn-primary btn-lg cursor'
+        className='btn btn-primary btn-lg cursor 
+        header-sub search-btn-btn apple-font'
         onClick={search}>
-          Search Cities
+          Find Stores!
       </button>
     </div>
   )

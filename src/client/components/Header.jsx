@@ -3,10 +3,10 @@ import { render } from 'react-dom';
 
 const Header = () => {
   return (
-    <div>
-      <h1>Store Searcher</h1>
+    <div className='header-text'>
+      <h1>StoreSeeker</h1>
       <div>
-        <span>find products you want -- but faster</span>
+        <span className='header-sub'>travel less. receive faster. enjoy more.</span>
       </div>
     </div>
   )
