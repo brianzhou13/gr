@@ -3,6 +3,7 @@ const path = require('path');
 const axios = require('axios');
 const urlBuilder = require('../utils/utilsUrlBuilder');
 const getShortestDistance = require('../utils/utilsGetClosest')();
+const respChecker = require('../utils/respChecker');
 
 module.exports = (app) => {
 
@@ -22,7 +23,14 @@ module.exports = (app) => {
 
       axios.get(url)
         .then((resp) => {
-          
+          const data = resp.data;
+          const respIsOkay = respChecker({data, street, city, state});
+
+          if(!respIsOkay) {
+            res.send(200, `response didn't pass test`);
+          }
+
+
           const locationData = resp.data.results[0].geometry.location;
 
           return [parseFloat(locationData.lat), parseFloat(locationData.lng)];
