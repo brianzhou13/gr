@@ -1,4 +1,6 @@
 const path = require('path');
+// const googleKey = require('../../../config/config').geocodeKey;
+const axios = require('axios');
 
 module.exports = (app) => {
 
@@ -6,6 +8,9 @@ module.exports = (app) => {
     .get((req, res) => {
       const {street, city, state, zip} = req.params;
       console.log(`street: ${street}, city: ${city}, zip: ${zip}, state: ${state}`);
+
+      res.redirect(`https://maps.googleapis.com/maps/api/geocode/json?address=${street},${city},${state}&key=${googleKey}`);
+      // axios.get
     });
 
   /*
@@ -20,3 +25,13 @@ module.exports = (app) => {
       res.sendFile(path.join(__dirname, '/../../client/index.html'));
     });
 };
+
+/*
+
+GOOGLE APIs
+ geolocation -- if you want to find current location based off cell-towers
+ geocoding -- give a destination
+ distance matrix -- compute distance between locations
+
+*/
+
