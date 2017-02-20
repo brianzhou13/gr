@@ -37,4 +37,6 @@ Another optimization would be to have the .csv array sorted before having it be 
 3. `npm start`   to startup server
 4. Head over to `http://127.0.0.1:3000`
 
+ 5. `npm test` to run tests
+
 
