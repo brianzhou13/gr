@@ -22,7 +22,8 @@ module.exports = (app) => {
 
       // check cache -- can use redis in the future or some other key-pair storage
       if(cache[url]) {
-        res.send(200, cache[url]);
+        res.send(cache[url]);
+        return;
       }
 
       console.log(`street: ${street}, city: ${city}, zip: ${zip}, state: ${state}`);
@@ -33,7 +34,9 @@ module.exports = (app) => {
           const respIsOkay = respChecker({data, street, city, state});
 
           if(!respIsOkay) {
-            res.send(200, `response didn't pass test`);
+            console.log(`data did not pass respChecker`);
+            res.send(`response didn't pass test`);
+            return;
           }
 
 
